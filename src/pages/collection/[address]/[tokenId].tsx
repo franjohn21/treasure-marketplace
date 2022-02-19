@@ -1048,8 +1048,8 @@ const timelineContent = (
     case Status.Sold:
       return (
         <p>
-          {shortenIfAddress(listing.seller.id)} sold to{" "}
-          {listing.buyer?.id ? shortenIfAddress(listing.buyer.id) : "Unknown"}{" "}
+          <span title={listing.seller.id}>{shortenIfAddress(listing.seller.id)}</span> sold to{" "}
+          {listing.buyer?.id ? <span title={listing.buyer.id}>shortenIfAddress(listing.buyer.id)</span> : "Unknown"}{" "}
           for{" "}
           <span className="font-medium text-gray-900 dark:text-gray-300">
             {formatPrice(listing.pricePerItem)}
@@ -1060,7 +1060,7 @@ const timelineContent = (
     case Status.Active:
       return (
         <p>
-          {shortenIfAddress(listing.seller.id)} listed this item for{" "}
+          <span title={listing.seller.id}>{shortenIfAddress(listing.seller.id)}</span> listed this item for{" "}
           <span className="font-medium text-gray-900 dark:text-gray-300">
             {formatPrice(listing.pricePerItem)}
           </span>{" "}
