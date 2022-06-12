@@ -13,12 +13,7 @@ type CollectionData = Record<
 > & {
   imageContain?: boolean;
   imageBgColor?: string;
-  cartridge:
-    | "bridgeworld"
-    | "ecosystem"
-    | "life"
-    | "smolverse"
-    | "bridgeworld-life";
+  cartridge: "bridgeworld" | "ecosystem" | "life" | "smolverse";
   docs?: string;
   discord?: string;
   game?: string;
@@ -56,6 +51,7 @@ export const smolverseItems = [
 ];
 
 export const METADATA_COLLECTIONS = [
+  "Imbued Souls",
   "KOTE Squires",
   "KOTE Potions",
   "KOTE Trinkets",
@@ -63,6 +59,7 @@ export const METADATA_COLLECTIONS = [
   "Peek-A-Boo",
   "SamuRise Items",
   "SamuRise Land",
+  "Seed of Life Resources",
   "Tales of Elleria",
   "The Lost Donkeys",
   "Toadstoolz",
@@ -113,6 +110,14 @@ const SAMURISE_DATA = {
   twitter: "SamuRiseNFT",
   website: "https://samurise.xyz",
 } as const;
+
+const SEED_OF_LIFE_DATA = {
+  cartridge: "life",
+  docs: "https://drive.google.com/file/d/1HwV-90u5TwffAvk83DIxfCKKLHfBAdmo/view",
+  game: "https://life.treasure.lol",
+  twitter: "LifeDAO_",
+  discord: "lifedao",
+};
 
 const TALES_OF_ELLERIA_DATA = {
   cartridge: "ecosystem",
@@ -189,14 +194,8 @@ const BALANCER_CRYSTAL = {
   description:
     "Exchange your SLP for one of these to further the fun in Bridgeworld and LIFE.",
   ...BRIDGEWORLD_DATA,
-  cartridge: "bridgeworld-life",
-  related: [
-    "legion-genesis",
-    "legion-auxiliary",
-    "consumables",
-    "treasures",
-    "seed-of-life",
-  ],
+  cartridge: "bridgeworld",
+  related: ["legion-genesis", "legion-auxiliary", "consumables", "treasures"],
 } as const;
 
 const EXTRA_LIFE = {
@@ -367,18 +366,34 @@ export const COLLECTION_METADATA = [
     website: "https://smolverse.lol",
   },
   {
+    href: "imbued-souls",
+    name: "Imbued Souls",
+    image:
+      "https://life-nft.mypinata.cloud/ipfs/QmTa3Pf9k1JW14WGNa9YwKsk5yqjXZfRegtpig9EUp9TQ3",
+    description:
+      "Character primitives evolved from the Seed of Life, Imbued Souls are the composable life forms originated in the land of Phanes. Every Imbued Soul has equal governance rights over LifeDAO.",
+    related: ["seed-of-life", "seed-of-life-resources"],
+    ...SEED_OF_LIFE_DATA,
+  },
+  {
     href: "seed-of-life",
     name: "Seed of Life",
     image:
       "https://ipfs.io/ipfs/QmbkpUo9dPsTVDfttdgkV6eqbPLCXyoKhFBxhwdAgqB15z/Seed of Life 1.png",
     description:
-      "Built atop the Magic ecosystem, Life embodies the metaverse as a living breathing ecosystem...",
-    cartridge: "life",
-    related: ["balancer-crystal", "treasures"],
-    docs: "https://drive.google.com/file/d/1HwV-90u5TwffAvk83DIxfCKKLHfBAdmo/view",
-    game: "https://life.treasure.lol",
-    twitter: "LifeNFT_",
-    discord: "treasuredao",
+      "Unevolved character primitive representing equal governance rights over LifeDAO. Can be evolved into an Imbued Soul by redeeming it at the Tree of Life.",
+    related: ["imbued-souls", "seed-of-life-resources"],
+    ...SEED_OF_LIFE_DATA,
+  },
+  {
+    href: "seed-of-life-resources",
+    name: "Seed of Life Resources",
+    image:
+      "https://life-nft.mypinata.cloud/ipfs/QmS3YBo7xCh7h5rmXu96Y6zumjUMWCH43G333HvTeV2qhA",
+    description:
+      "Limited resources from the world of Phanes. Future utility across different cartridges in the Treasure ecosystem.",
+    related: ["seed-of-life", "imbued-souls"],
+    ...SEED_OF_LIFE_DATA,
   },
   {
     href: "legion-auxiliary",
@@ -400,7 +415,7 @@ export const COLLECTION_METADATA = [
     description:
       "Treasures are composable building blocks in Bridgeworld that will be used inter- and intra-metaverse.",
     ...BRIDGEWORLD_DATA,
-    cartridge: "bridgeworld-life",
+    cartridge: "bridgeworld",
     related: [
       "legion-genesis",
       "legion-auxiliary",
@@ -584,8 +599,12 @@ export const COLLECTION_DESCRIPTIONS = {
     "The Smol Brains are a dynamic PFP of a monkey whose head gets bigger the larger its IQ becomes.",
   "smol-brains-pets":
     "The Smol Brains Pets are cute companions to accompany your Smol Brain in Smolverse.",
+  "imbued-souls":
+    "Character primitives evolved from the Seed of Life, Imbued Souls are the composable life forms originated in the land of Phanes. Every Imbued Soul has equal governance rights over LifeDAO.",
   "seed-of-life":
-    "Built atop the Magic ecosystem, Life embodies the metaverse as a living breathing ecosystem...",
+    "Unevolved character primitive representing equal governance rights over LifeDAO. Can be evolved into an Imbued Soul by redeeming it at the Tree of Life.",
+  "seed-of-life-resources":
+    "Limited resources from the world of Phanes. Future utility across different cartridges in the Treasure ecosystem.",
   "smol-cars":
     "The Smol Cars are here to get you around in Smolverse. Vroom vroom.",
   treasures:
